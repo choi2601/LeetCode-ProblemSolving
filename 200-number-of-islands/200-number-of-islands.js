@@ -9,47 +9,47 @@ var numIslands = function(grid) {
     const m = dx.length;
     const queue = [];
     
-    function DFS(x, y) {
-        grid[x][y] = '0';
-        for(let k = 0; k < m; k++) {
-                const nx = x + dx[k];
-                const ny = y + dy[k];
-                if(nx < n1 && ny < n2 && nx >= 0 && ny >= 0 && grid[nx][ny] === '1') {
-                    DFS(nx, ny);
-                }
-        }
-    }
+//     function DFS(x, y) {
+//         grid[x][y] = '0';
+//         for(let k = 0; k < m; k++) {
+//                 const nx = x + dx[k];
+//                 const ny = y + dy[k];
+//                 if(nx < n1 && ny < n2 && nx >= 0 && ny >= 0 && grid[nx][ny] === '1') {
+//                     DFS(nx, ny);
+//                 }
+//         }
+//     }
+    
+//     for(let i = 0; i < n1; i++) {
+//         for(let j = 0; j < n2; j++) {
+//             const curPos = grid[i][j];
+//             if(curPos === '1') {
+//                 answer++;
+//                 DFS(i, j);
+//             }
+//         }
+//     }
+    
     
     for(let i = 0; i < n1; i++) {
         for(let j = 0; j < n2; j++) {
-            const curPos = grid[i][j];
-            if(curPos === '1') {
+            if(grid[i][j] === '1') {
+                grid[i][j] = '0';
+                queue.push([i, j]);
                 answer++;
-                DFS(i, j);
+                while(queue.length) {
+                    const [x, y] = queue.shift();
+                    for(let k = 0; k < m; k++) {
+                        const nx = x + dx[k];
+                        const ny = y + dy[k];
+                        if(nx >= 0 && nx < n1 && ny >= 0 && ny < n2 && grid[nx][ny] === '1') {
+                            grid[nx][ny] = '0';
+                            queue.push([nx, ny]);
+                        }
+                    }
+                }
             }
         }
     }
-    
-    
-    // for(let i = 0; i < n1; i++) {
-    //     for(let j = 0; j < n2; j++) {
-    //         if(grid[i][j] === '1') {
-    //             grid[i][j] = '0';
-    //             queue.push([i, j]);
-    //             answer++;
-    //             while(queue.length) {
-    //                 const [x, y] = queue.shift();
-    //                 for(let k = 0; k < m; k++) {
-    //                     const nx = x + dx[k];
-    //                     const ny = y + dy[k];
-    //                     if(nx >= 0 && nx < n1 && ny >= 0 && ny < n2 && grid[nx][ny] === '1') {
-    //                         grid[nx][ny] = '0';
-    //                         queue.push([nx, ny]);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
     return answer;
 };
