@@ -15,16 +15,16 @@ var merge = function(nums1, m, nums2, n) {
 //     }
     
 //     return nums1;
-    nums1.splice(m, n, ...nums2);
-    nums1.sort((a, b) => a - b);
-    return nums1;
-//    nums1.splice(m, n);
+    // nums1.splice(m, n, ...nums2);
+    // nums1.sort((a, b) => a - b);
+    // return nums1;
+   nums1.splice(m, n);
     
-//    if(!n) return nums1;
+   if(!n) return nums1;
     
-//    for(let x of nums2) {
-//        nums1.push(x);
-//    }
-//    nums1.sort((a, b) => a - b);
+   for(let x of nums2) {
+       nums1.push(x);
+   }
+   nums1.sort((a, b) => a - b);
 };
 
