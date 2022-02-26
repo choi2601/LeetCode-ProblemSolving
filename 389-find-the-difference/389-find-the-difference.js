@@ -19,7 +19,6 @@ var findTheDifference = function(s, t) {
         else {
             if(sH.get(x) === 0) return x;
             sH.set(x, sH.get(x) - 1);
-            // if(pt === t.length - 1) return x;
         }
     }
 };
