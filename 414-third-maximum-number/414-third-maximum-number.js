@@ -6,9 +6,9 @@ var thirdMax = function(nums) {
     const arr = new Set(nums.sort((a, b) => b - a));
    
     if(arr.size < 3) {
-        for(let x of arr) {
-            return x;
-        }
+        
+            return Array.from(arr)[0];
+        
     }
     let pt = 0;
     for(let x of arr) {
