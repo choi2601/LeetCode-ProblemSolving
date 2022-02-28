@@ -13,9 +13,7 @@ var wordPattern = function(pattern, s) {
     
     for(let i = 0; i < pattern.length; i++) {
         if(!sH.has(pattern[i])) sH.set(pattern[i], str[i])
-        else {
-            if(sH.get(pattern[i]) !== str[i]) return false;
-        }
+        else if(sH.get(pattern[i]) !== str[i]) return false;
     }
     return true;
 };
