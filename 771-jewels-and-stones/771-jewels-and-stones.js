@@ -11,6 +11,6 @@ var numJewelsInStones = function(jewels, stones) {
     
 //     return answer;
     const answer = stones.split('').reduce((res, x) => jewels.includes(x) + res,0)
-    
+    // boolean + 축적 => true = 1 | false = 0
     return answer;
 };
