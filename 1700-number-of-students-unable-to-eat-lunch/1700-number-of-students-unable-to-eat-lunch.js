@@ -8,7 +8,6 @@ var countStudents = function(students, sandwiches) {
     
     while(students.length) {
         if(!students.includes(sandwiches[0])) {
-            console.log('d');
             students.shift();
             cnt++;
         } else {
