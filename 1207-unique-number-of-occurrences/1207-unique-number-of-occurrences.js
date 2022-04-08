@@ -10,14 +10,20 @@ var uniqueOccurrences = function(arr) {
         else sH.set(x, sH.get(x) + 1);
     }
     
-    const sHArr = [...sH];
+//     const sHArr = [...sH];
     
-    for(let i = 0; i < sHArr.length; i++) {
-        const target = sHArr[i][1];
-        for(let j = i + 1; j < sHArr.length; j++) {
-            const cp = sHArr[j][1];
-            if(target === cp) return false;
-        }
+//     for(let i = 0; i < sHArr.length; i++) {
+//         const target = sHArr[i][1];
+//         for(let j = i + 1; j < sHArr.length; j++) {
+//             const cp = sHArr[j][1];
+//             if(target === cp) return false;
+//         }
+//     }
+    const set = new Set();
+    
+    for(let val of sH.values()) {
+        if(set.has(val)) return false;
+        set.add(val);
     }
     
     return true;
