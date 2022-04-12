@@ -4,7 +4,6 @@
  */
 var checkRecord = function(s) {
     let absentCnt = 0;
-    let lateCnt = 0;
     let ch = [];
     
     for(let x of s) {
